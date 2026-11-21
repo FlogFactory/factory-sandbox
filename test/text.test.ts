@@ -5,6 +5,8 @@ import { slugify, wordCount } from '../src/text.ts';
 test('slugify', () => {
   assert.equal(slugify('Hello, World!'), 'hello-world');
   assert.equal(slugify('  Already--slugged  '), 'already-slugged');
+  assert.equal(slugify('Café déjà vu'), 'cafe-deja-vu');
+  assert.equal(slugify('Māori'), 'maori');
 });
 
 test('wordCount', () => {

@@ -7,7 +7,9 @@ A deliberately small project for testing the software factory end to end: issues
 
 ## Marketing site
 
-The Slugify marketing page lives in `site/` and is built with Astro and Tailwind CSS. It is published to GitHub Pages by `.github/workflows/site.yml`.
+The Slugify marketing page lives in `site/` and is built with Astro and Tailwind CSS. It produces a static site in `site/dist` that can be served from any static host.
+
+GitHub Pages deployment is not enabled yet: the GitHub App used by the factory lacks the `workflows` permission to add the Pages workflow. The prepared workflow is included in the pull request body for a maintainer to add.
 
 ```sh
 cd site

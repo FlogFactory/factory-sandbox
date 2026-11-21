@@ -1,0 +1,256 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const repoUrl = "https://github.com/FlogFactory/factory-sandbox";
+
+const features = [
+  {
+    title: "Unicode, handled",
+    body: "Café déjà vu becomes cafe-deja-vu. Slugify folds accents to their base letters instead of dropping them into the void.",
+    tag: "i18n-ready",
+  },
+  {
+    title: "Max length, on tap",
+    body: "Pass a maxLength and get a clean truncation that never leaves a dangling hyphen. Perfect for SEO titles and database keys.",
+    tag: "configurable",
+  },
+  {
+    title: "Hyphen hygiene",
+    body: "Every run of non-alphanumeric characters collapses into a single hyphen. No double dashes, no leading or trailing noise.",
+    tag: "tidy",
+  },
+  {
+    title: "Word counting",
+    body: "wordCount() counts real alphanumeric tokens, so punctuation and whitespace never inflate your numbers.",
+    tag: "bonus API",
+  },
+  {
+    title: "Zero dependencies",
+    body: "No transitive supply chain, no install-time surprises. Just TypeScript that runs wherever Node 22+ runs.",
+    tag: "tiny",
+  },
+  {
+    title: "Read the source",
+    body: "The whole library is two small functions. Clone the repo, read every line, and ship it in your own project.",
+    tag: "transparent",
+  },
+];
+
+const stats = [
+  { value: "0", label: "dependencies" },
+  { value: "2", label: "functions" },
+  { value: "100%", label: "TypeScript" },
+  { value: "Node 22+", label: "runtime" },
+];
+---
+
+<Layout>
+  <div class="relative overflow-hidden">
+    <!-- Ambient background -->
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+      <div class="absolute -top-40 left-1/2 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-fuchsia-600/30 blur-[120px] animate-float-slow"></div>
+      <div class="absolute top-32 -left-32 h-96 w-96 rounded-full bg-cyan-500/20 blur-[110px] animate-float-slow"></div>
+      <div class="absolute top-64 -right-32 h-96 w-96 rounded-full bg-indigo-500/20 blur-[110px] animate-float-slow"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#070b16_75%)]"></div>
+    </div>
+
+    <!-- Nav -->
+    <header class="sticky top-0 z-40 border-b border-white/5 bg-[#070b16]/70 backdrop-blur-xl">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4" aria-label="Primary">
+        <a href="#top" class="flex items-center gap-2 text-lg font-semibold tracking-tight text-white">
+          <span class="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-cyan-400 via-indigo-400 to-fuchsia-500 text-sm font-black text-[#070b16]">S</span>
+          Slugify
+        </a>
+        <div class="hidden items-center gap-8 text-sm text-slate-300 md:flex">
+          <a href="#features" class="transition hover:text-white">Features</a>
+          <a href="#usage" class="transition hover:text-white">Usage</a>
+          <a href="#why" class="transition hover:text-white">Why Slugify</a>
+        </div>
+        <a
+          href={repoUrl}
+          class="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white transition hover:border-white/30 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070b16]"
+        >
+          Star on GitHub
+        </a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="mx-auto max-w-6xl px-6 pt-20 pb-16 text-center md:pt-28">
+        <div class="animate-fade-up">
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-slate-300">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+            The slug layer your URLs deserve
+          </span>
+          <h1 class="mt-6 text-balance text-5xl font-black leading-[1.05] tracking-tight text-white md:text-7xl">
+            Turn any title into a
+            <span class="bg-gradient-to-r from-cyan-300 via-indigo-300 to-fuchsia-400 bg-clip-text text-transparent">
+              beautiful slug
+            </span>
+          </h1>
+          <p class="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-slate-300 md:text-xl">
+            Slugify is the tiny, Unicode-aware library that makes URLs clean, shareable, and impossible to break. No dependencies. No drama. Just slugs that hit different.
+          </p>
+          <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href={repoUrl}
+              class="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-indigo-400 to-fuchsia-500 px-7 py-3.5 text-base font-semibold text-[#070b16] shadow-lg shadow-fuchsia-500/20 transition hover:shadow-fuchsia-500/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070b16]"
+            >
+              Get the source
+              <span aria-hidden="true" class="transition group-hover:translate-x-0.5">→</span>
+            </a>
+            <a
+              href="#features"
+              class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-7 py-3.5 text-base font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070b16]"
+            >
+              Explore features
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero code card -->
+        <div class="relative mx-auto mt-16 max-w-3xl animate-fade-up">
+          <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-cyan-500/20 via-indigo-500/20 to-fuchsia-500/20 blur-2xl"></div>
+          <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0b1020]/90 text-left shadow-2xl">
+            <div class="flex items-center gap-2 border-b border-white/5 px-4 py-3">
+              <span class="h-3 w-3 rounded-full bg-rose-400/80"></span>
+              <span class="h-3 w-3 rounded-full bg-amber-300/80"></span>
+              <span class="h-3 w-3 rounded-full bg-emerald-400/80"></span>
+              <span class="ml-3 font-mono text-xs text-slate-500">slugify.ts</span>
+            </div>
+            <pre class="overflow-x-auto p-5 font-mono text-sm leading-relaxed text-slate-300"><code><span class="text-fuchsia-300">import</span> &#123; slugify, wordCount &#125; <span class="text-fuchsia-300">from</span> <span class="text-emerald-300">"./src/text.ts"</span>;
+
+slugify(<span class="text-emerald-300">"Café déjà vu"</span>);
+<span class="text-slate-500">// "cafe-deja-vu"</span>
+
+slugify(<span class="text-emerald-300">"Hello, World!"</span>, <span class="text-cyan-300">12</span>);
+<span class="text-slate-500">// "hello-world"</span>
+
+wordCount(<span class="text-emerald-300">"ship it, ship it now"</span>);
+<span class="text-slate-500">// 4</span></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section id="why" class="mx-auto max-w-6xl px-6 py-10">
+        <div class="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 md:grid-cols-4">
+          {stats.map((stat) => (
+            <div class="bg-[#0b1020]/60 px-6 py-8 text-center">
+              <div class="text-3xl font-black text-white md:text-4xl">{stat.value}</div>
+              <div class="mt-1 text-xs uppercase tracking-[0.2em] text-slate-400">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section id="features" class="mx-auto max-w-6xl px-6 py-20">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-fuchsia-300">Features</p>
+          <h2 class="mt-3 text-balance text-4xl font-black tracking-tight text-white md:text-5xl">
+            Small library. Massive leverage.
+          </h2>
+          <p class="mt-4 text-lg text-slate-300">
+            Every edge case you have ever cursed at, already handled. Here is what ships in the box.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature) => (
+            <article class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.06]">
+              <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-fuchsia-400/60 to-transparent opacity-0 transition group-hover:opacity-100"></div>
+              <span class="inline-flex rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wider text-slate-400">
+                {feature.tag}
+              </span>
+              <h3 class="mt-4 text-lg font-semibold text-white">{feature.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-300">{feature.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- Usage -->
+      <section id="usage" class="mx-auto max-w-6xl px-6 py-20">
+        <div class="grid items-center gap-12 lg:grid-cols-2">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">Usage</p>
+            <h2 class="mt-3 text-balance text-4xl font-black tracking-tight text-white md:text-5xl">
+              Two functions. Zero friction.
+            </h2>
+            <p class="mt-4 text-lg leading-relaxed text-slate-300">
+              Slugify lives in the repository as plain TypeScript. Clone it, read it, and import it straight into your project. No package manager gymnastics required.
+            </p>
+            <ul class="mt-6 space-y-3 text-sm text-slate-300">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-emerald-400/15 text-emerald-300">✓</span>
+                <span><strong class="text-white">slugify(title, maxLength?)</strong> — normalized, lowercased, hyphenated, truncated.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-emerald-400/15 text-emerald-300">✓</span>
+                <span><strong class="text-white">wordCount(text)</strong> — counts real alphanumeric tokens.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-emerald-400/15 text-emerald-300">✓</span>
+                <span>Runs on Node 22+ with built-in TypeScript stripping.</span>
+              </li>
+            </ul>
+            <a
+              href={repoUrl}
+              class="mt-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070b16]"
+            >
+              Read the source on GitHub
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-cyan-500/10 via-indigo-500/10 to-fuchsia-500/10 blur-2xl"></div>
+            <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0b1020]/90 shadow-2xl">
+              <div class="flex items-center justify-between border-b border-white/5 px-4 py-3">
+                <span class="font-mono text-xs text-slate-500">terminal</span>
+                <span class="font-mono text-[11px] text-slate-600">~/factory-sandbox</span>
+              </div>
+              <pre class="overflow-x-auto p-5 font-mono text-sm leading-relaxed text-slate-300"><code><span class="text-slate-500"># clone it</span>
+git clone {repoUrl}.git
+
+<span class="text-slate-500"># run the tests</span>
+npm test
+
+<span class="text-slate-500"># import and go</span>
+<span class="text-fuchsia-300">import</span> &#123; slugify &#125; <span class="text-fuchsia-300">from</span> <span class="text-emerald-300">"./src/text.ts"</span>;</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section class="mx-auto max-w-6xl px-6 pb-24">
+        <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-indigo-500/10 via-fuchsia-500/10 to-cyan-500/10 px-8 py-16 text-center">
+          <div aria-hidden="true" class="pointer-events-none absolute -top-24 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-fuchsia-500/20 blur-3xl"></div>
+          <h2 class="relative text-balance text-4xl font-black tracking-tight text-white md:text-5xl">
+            Your URLs called. They want better slugs.
+          </h2>
+          <p class="relative mx-auto mt-4 max-w-xl text-lg text-slate-300">
+            Star the repo, steal the code, and never ship a mangled URL again.
+          </p>
+          <a
+            href={repoUrl}
+            class="relative mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold text-[#070b16] transition hover:bg-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070b16]"
+          >
+            Open the GitHub repo
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/5">
+      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm text-slate-400 sm:flex-row">
+        <p>Slugify — a tiny library in <a href={repoUrl} class="text-slate-300 underline decoration-white/20 underline-offset-4 transition hover:text-white">FlogFactory/factory-sandbox</a>.</p>
+        <p class="font-mono text-xs text-slate-500">Built for the open web.</p>
+      </div>
+    </footer>
+  </div>
+</Layout>

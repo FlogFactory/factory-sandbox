@@ -9,6 +9,18 @@ test('slugify', () => {
   assert.equal(slugify('Māori'), 'maori');
 });
 
+test('slugify with maxLength', () => {
+  const long = slugify('This is a very long title for a post', 10);
+  assert.ok(long.length <= 10);
+  assert.equal(long, 'this-is-a');
+  assert.equal(slugify('short', 5), 'short');
+  assert.equal(slugify('x'.repeat(100), 3), 'xxx');
+  assert.equal(slugify('   ', 5), '');
+  assert.equal(slugify('ab cd', 3), 'ab');
+  assert.equal(slugify('Hello World', 0), 'hello-world');
+  assert.equal(slugify('Hello World', -1), 'hello-world');
+});
+
 test('wordCount', () => {
   assert.equal(wordCount('one two  three'), 3);
   assert.equal(wordCount('   '), 0);

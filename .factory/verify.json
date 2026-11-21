@@ -1,6 +1,0 @@
-{
-  "version": 1,
-  "commands": [
-    { "name": "test", "run": "npm test", "timeoutSeconds": 300 }
-  ]
-}

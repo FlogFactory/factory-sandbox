@@ -8,5 +8,7 @@ export function slugify(title: string): string {
 
 /** Count the words in a piece of text. */
 export function wordCount(text: string): number {
-  return text.split(/\s+/).filter(Boolean).length;
+  return text
+    .split(/\s+/)
+    .filter((token) => /[a-zA-Z0-9]+/.test(token)).length;
 }

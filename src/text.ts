@@ -1,5 +1,6 @@
 /**
  * Turn a title into a URL slug: lower case, words joined by single hyphens.
+ * Apostrophes (' and ’) are dropped, so "Don't" becomes "dont".
  * Diacritics are reduced to their base letters (e.g. "é" -> "e").
  * If `maxLength` is a positive number, the slug is cut to at most that many
  * characters, with any trailing hyphen removed.
@@ -9,6 +10,7 @@ export function slugify(title: string, maxLength?: number): string {
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .toLowerCase()
+    .replace(/['’]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   if (typeof maxLength === 'number' && maxLength > 0 && s.length > maxLength) {

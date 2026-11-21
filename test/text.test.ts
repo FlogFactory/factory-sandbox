@@ -7,6 +7,9 @@ test('slugify', () => {
   assert.equal(slugify('  Already--slugged  '), 'already-slugged');
   assert.equal(slugify('Café déjà vu'), 'cafe-deja-vu');
   assert.equal(slugify('Māori'), 'maori');
+  assert.equal(slugify("Don't panic"), 'dont-panic');
+  assert.equal(slugify("It's 5 o'clock"), 'its-5-oclock');
+  assert.equal(slugify('Don’t panic'), 'dont-panic');
 });
 
 test('slugify with maxLength', () => {

@@ -2,6 +2,8 @@
 export function slugify(title: string): string {
   return title
     .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '') // remove combining diacritical marks
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 }

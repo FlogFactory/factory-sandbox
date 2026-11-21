@@ -12,6 +12,7 @@ test('slugify', () => {
 test('wordCount', () => {
   assert.equal(wordCount('one two  three'), 3);
   assert.equal(wordCount('   '), 0);
+  assert.equal(wordCount(''), 0);
   assert.equal(wordCount('one - two'), 2);
   assert.equal(wordCount('wait ... what'), 2);
   assert.equal(wordCount('state-of-the-art design'), 2);

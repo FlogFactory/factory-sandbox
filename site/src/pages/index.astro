@@ -10,8 +10,8 @@ const features = [
     tag: "i18n-ready",
   },
   {
-    title: "Max length, on tap",
-    body: "Pass a maxLength and get a clean truncation that never leaves a dangling hyphen. Perfect for SEO titles and database keys.",
+    title: "Limits, on tap",
+    body: "Pass maxLength to truncate without a dangling hyphen, or maxWordCount to keep only the leading words. Perfect for SEO titles and database keys.",
     tag: "configurable",
   },
   {
@@ -127,6 +127,9 @@ slugify(<span class="text-emerald-300">"Café déjà vu"</span>);
 slugify(<span class="text-emerald-300">"Hello, World!"</span>, <span class="text-cyan-300">12</span>);
 <span class="text-slate-500">// "hello-world"</span>
 
+slugify(<span class="text-emerald-300">"This is a very long title"</span>, <span class="text-fuchsia-300">undefined</span>, <span class="text-cyan-300">3</span>);
+<span class="text-slate-500">// "this-is-a"</span>
+
 wordCount(<span class="text-emerald-300">"ship it, ship it now"</span>);
 <span class="text-slate-500">// 5</span></code></pre>
           </div>
@@ -185,7 +188,7 @@ wordCount(<span class="text-emerald-300">"ship it, ship it now"</span>);
             <ul class="mt-6 space-y-3 text-sm text-slate-300">
               <li class="flex items-start gap-3">
                 <span class="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-emerald-400/15 text-emerald-300">✓</span>
-                <span><strong class="text-white">slugify(title, maxLength?)</strong> — normalized, lowercased, hyphenated, truncated.</span>
+                <span><strong class="text-white">slugify(title, maxLength?, maxWordCount?)</strong> — normalized, lowercased, hyphenated, and truncated by length or word count.</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-emerald-400/15 text-emerald-300">✓</span>
@@ -219,7 +222,10 @@ git clone {repoUrl}.git
 npm test
 
 <span class="text-slate-500"># import and go</span>
-<span class="text-fuchsia-300">import</span> &#123; slugify &#125; <span class="text-fuchsia-300">from</span> <span class="text-emerald-300">"./src/text.ts"</span>;</code></pre>
+<span class="text-fuchsia-300">import</span> &#123; slugify &#125; <span class="text-fuchsia-300">from</span> <span class="text-emerald-300">"./src/text.ts"</span>;
+
+slugify(<span class="text-emerald-300">"This is a very long title"</span>, <span class="text-fuchsia-300">undefined</span>, <span class="text-cyan-300">3</span>);
+<span class="text-slate-500">// "this-is-a"</span></code></pre>
             </div>
           </div>
         </div>

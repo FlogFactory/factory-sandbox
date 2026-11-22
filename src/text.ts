@@ -24,9 +24,12 @@ export function slugify(title: string, maxLength?: number, maxWordCount?: number
   return s;
 }
 
-/** Count the words in a piece of text. */
+/**
+ * Count the words in a piece of text. Words are separated by whitespace,
+ * em dashes (—), en dashes (–) or slashes (/); hyphenated words count as one.
+ */
 export function wordCount(text: string): number {
   return text
-    .split(/\s+/)
+    .split(/[\s—–/]+/)
     .filter((token) => /[a-zA-Z0-9]+/.test(token)).length;
 }

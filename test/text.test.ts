@@ -49,4 +49,9 @@ test('wordCount', () => {
   assert.equal(wordCount('one - two'), 2);
   assert.equal(wordCount('wait ... what'), 2);
   assert.equal(wordCount('state-of-the-art design'), 2);
+  assert.equal(wordCount('red—blue'), 2);
+  assert.equal(wordCount('either/or'), 2);
+  assert.equal(wordCount('red – blue'), 2);
+  assert.equal(wordCount('a/b/c'), 3);
+  assert.equal(wordCount('well-known'), 1);
 });
